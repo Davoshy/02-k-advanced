@@ -1,5 +1,16 @@
 const oppenentOptions = ["Rock", "Paper", "Scissors"];
 
+let updateHighscore = () => {
+  if (
+    Number(document.querySelector("#pointValue").innerHTML) >
+    Number(document.querySelector("#highScoreValue").innerHTML)
+  ) {
+    document.querySelector("#highScoreValue").innerHTML = Number(
+      document.querySelector("#pointValue").innerHTML
+    );
+  }
+};
+
 let selectRock = () => {
   let integer = Math.floor(Math.random() * 3);
   let opponent = oppenentOptions[integer];
@@ -19,6 +30,7 @@ let selectRock = () => {
     }
   });
   opponentChoice.classList.remove("hidden");
+  updateHighscore();
 };
 
 let selectPaper = () => {
@@ -39,6 +51,7 @@ let selectPaper = () => {
     }
   });
   opponentChoice.classList.remove("hidden");
+  updateHighscore();
 };
 
 let selectScissors = () => {
@@ -59,4 +72,5 @@ let selectScissors = () => {
     }
   });
   opponentChoice.classList.remove("hidden");
+  updateHighscore();
 };
